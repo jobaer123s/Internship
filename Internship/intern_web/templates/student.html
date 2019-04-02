@@ -1,0 +1,416 @@
+{% extends 'base.html' %}
+{% load staticfiles  %}
+{% block content %}
+<style>
+body {font-family: Arial;}
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    border-right:1px solid #ccc;
+
+
+}
+.tab button:last-child {
+  border: none;
+}
+.tablinks i{
+padding-right:20px;
+padding-left:5px
+}
+.tablinks{
+color:#16888f;
+font-family: 'Oswald', sans-serif;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+
+    border-top: none;
+
+
+}
+    .tabcontent p{
+    font-size:20px;
+    margin-top:20px
+    }
+    .tabcontent h3{
+    margin-top:10px;
+    font-family: 'Oswald', sans-serif;
+    color:#16888f;
+    }
+
+    .banner{
+    margin-top:60px
+    }
+
+   .ban-text{
+    position: absolute;
+    top:20%;
+    left:8%
+}
+.ban-text h1{
+    color:#1a9d96;
+    font-weight: 600;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: 'Oswald', sans-serif;
+
+}
+.ban-text h3{
+    color:#000;
+    font-weight: 600;
+    font-family: 'Oswald', sans-serif;
+
+}
+
+
+.ban-text p span{
+    color:#031a0d;
+    font-weight: 600;
+    font-family: 'Oswald', sans-serif;
+    }
+.banner{
+        z-index: 1;
+
+    }
+.stu_search{
+    border:1px solid #ccc
+}
+.left-search p{
+    text-size:15px;
+    color:#000
+    margin-top: 12px;
+    margin-left: 6px;
+    padding-top: 10px;
+    font-family: 'Oswald', sans-serif;
+}
+.left-search{
+background-color:#ddd;
+border:1px solid #ccc
+}
+ .search{
+        background-color: #1a7c85;
+        padding: 10px;
+        color: #fff;
+        font-family: 'Oswald', sans-serif;
+    }
+    .search p{
+        font-size: 18px;
+    }
+    .left-search .show{
+        color: #172c21;
+        margin-top: 23px;
+        margin-bottom: 10px;
+    }
+    .left-search h2{
+    font-weight:600;
+    font-family: 'Oswald', sans-serif;
+    }
+
+     .right-search h2{
+    font-weight:600;
+    font-family: 'Oswald', sans-serif;
+    }
+    .right-search{
+    padding-left:50px
+    }
+    .right-search p{
+        text-color:#ccc;
+        margin-bottom:35px;
+        margin-top:15px;
+        font-family: 'Oswald', sans-serif;
+    }
+    .right-search .btn{
+        background-color:#1898ce;
+        border:none
+    }
+    .list{
+        margin-top:10px;
+        margin-bottom:42px
+    }
+    .form-control{
+    padding-right:86px
+    }
+    .btn{
+    background-color:#1898ce;
+    color:#fff
+    }
+
+   .dot{
+        margin-top: 28px;
+    }
+     .dot h1{
+        font-size: 20px;
+        color: #16888f;
+        font-weight: 600;
+        margin-bottom: 10px;
+        font-family: 'Oswald', sans-serif;
+    }
+    .dot p{
+        color: #727772;
+        margin-top: 5px;
+        font-family: 'Oswald', sans-serif;
+    }
+    .dot h3{
+        color: #2b542c;
+        margin-bottom: 10px;
+        font-weight: 600;
+    }
+    .dot h3{
+        font-size: 17px;
+        margin-top: 5px;
+        margin-bottom: 22px;
+        font-family: 'Oswald', sans-serif;
+    }
+     h1,h3{
+        margin: 0;
+        padding: 0;
+    }
+    .col-sm-12{
+    padding:0px
+    }
+    .dot h2{
+    color:red
+    }
+    .check{
+        margin-top: 20px;
+        background-color: #f8f7f7;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 21px;
+}
+    .check h3 i{
+    padding-right:3px
+    }
+    .left-search p i{
+    padding-left:5px
+    }
+     .check:hover{
+    background-color:#efefed;
+    }
+</style>
+
+<!--banner part-->
+
+  <div class="banner">
+       <div class="ban_image">
+
+           <a href="#"><img src="{% static 'images/discover.jpg' %}" alt=""></a>
+       </div>
+    <div class="ban-text">
+        <h3>DISCOVER </h3>
+        <h1>JOBS AND INTERNSHIPS</h1>
+        {% for amount in amount %}
+        <p><span><a href="{% url 'post_list'%}">{{ amount.job }}</a></span> jobs and <span><a href="{% url 'post_list'%}">{{ amount.intern }}</a></span> internship positions from <span><a href="{% url 'post_list'%}">{{ amount.company }}</a></span> companies
+            located in<br> <span><a href="{% url 'post_list'%}">{{ amount.city }}</a></span> cities across the Bangladesh.</p>
+        {% endfor %}
+    </div>
+   </div>
+
+
+<!--header part-->
+
+<section class="search">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <p>Search for Internship if you are on the road of completing Graduation</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--duel search part-->
+
+<section class="stu_search">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 left-search">
+                <form class="form-inline" method="get" action="">
+                    <h2>Search Internships</h2>
+                    <p>Location <i class="fas fa-map-marker-alt"></i> </p>
+                        <input type="text" class="form-control mr-sm-2" name="q" value="{{ request.GET.query }}" type="search" placeholder="Search" aria-label="Search"><br>
+                        <p>job type </p>
+                        <input type="text" class="form-control mr-sm-2" name="q" value="{{ request.GET.query }}" type="search" placeholder="Search" aria-label="Search"><br><br>
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                      </form>
+                <p class="show">show me</p>
+                <div class="list">
+                     <ul>
+                    <li>- All Opportunities</li>
+                    <li>- Internships</li>
+                    <li>- Entry Level Jobs</li>
+                    <li>- Student Jobs</li>
+                </ul>
+                </div>
+            </div>
+
+
+            <!--FAQ part-->
+
+            <div class="col-sm-8 right-search">
+                <h2>FAQ About Students Internship</h2>
+
+                <!--<p>In these tips, wyou can learn how you will be parfect for industry, and can perform anywhere you needed</p>-->
+                <p>In these FAQ, you can learn how you will upgraded for industry, and can perform anywhere you needed</p>
+
+                    <div class="tab">
+                        <button class="tablinks" >Click Any FAQ<i class="fas fa-angle-double-right"></i></button>
+                      <button class="tablinks" onclick="openCity(event, 'Learn')" id="defaultOpen">1</button>
+                      <button class="tablinks" onclick="openCity(event, 'Ask')">2</button>
+                      <button class="tablinks" onclick="openCity(event, 'Pract')">3</button>
+                      <button class="tablinks" onclick="openCity(event, 'Code')">4</button>
+                      <button class="tablinks" onclick="openCity(event, 'Google')">5</button>
+                      <button class="tablinks" onclick="openCity(event, 'Youtube')">6</button>
+                      <button class="tablinks" onclick="openCity(event, 'Solve')">7</button>
+                        <button class="tablinks" >& Go Ahead<i class="far fa-smile-beam"></i></button>
+
+                    </div>
+
+                    <div id="Learn" class="tabcontent">
+                      <h3>Will I get any salery if I appointed a internship?</h3>
+                      <p>Yes Sometimes you will get a little. There are many variations of passages of Lorem Ipsum available,
+                          but the majority have suffered alteration in some form, by injected humour, or randomised words which don't
+                          look even slightly believable.  The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for
+                          those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by
+                          Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation
+                          by H. Rackham.</p>
+                    </div>
+
+                    <div id="Ask" class="tabcontent">
+                      <h3>What is Student Internship all about?</h3>
+                      <p>Student Internship all about is  There are many variations of passages
+                          of Lorem Ipsum available, but the majority have suffered alteration in some form, by
+                          injected humour, or randomised words which don't look even slightly believable. The standard chunk of Lorem Ipsum
+                          used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus
+                          Bonorum et Malorum" by
+                          Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation
+                          by H. Rackham. </p>
+                    </div>
+
+                    <div id="Pract" class="tabcontent">
+                      <h3>Are there any opportunity to get permanent job?</h3>
+                      <p>Yes there any opportunity to get permanent job There are many variations of passages of Lorem Ipsum available, The standard chunk
+                          of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de
+                          Finibus Bonorum et Malorum" by Cicero are also
+                          reproduced in their exact original form, accompanied by English versions from the 1914 translation by H.
+                          Rackham. but the majority have suffered alteration in some form, by injected humour, or randomised words which
+                          don't look even slightly believable. </p>
+                    </div>
+
+                    <div id="Code" class="tabcontent">
+                      <h3>What is search by location?</h3>
+                      <p>The search by location  is the capital of Japan. The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for
+                          those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in
+                          their exact original form,
+                          accompanied by English versions from the 1914 translation by H. Rackham. There are many variations of passages of
+                          Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised
+                          words which don't look even slightly believable. </p>
+                    </div>
+
+                     <div id="Google" class="tabcontent">
+                      <h3>What is search by Job Title</h3>
+                      <p>The  search by location is There are many variations of passages of Lorem Ipsum available, The standard chunk of
+                          Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de
+                          Finibus Bonorum et Malorum" by Cicero
+                          are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H.
+                          Rackham. but the majority have suffered alteration in some form, by injected humour, or randomised words which
+                          don't look even slightly believable. </p>
+                    </div>
+
+                    <div id="Youtube" class="tabcontent">
+                      <h3> Has unemployement any ready solution?</h3>
+                      <p> Yes  unemployement Has ready solution. There are many variations of passages of Lorem Ipsum  The standard chunk of
+                          Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from
+                          "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English
+                          versions
+                          from the 1914 translation by H. Rackham.available, but the majority have suffered alteration in some form, by
+                          injected humour, or randomised words which don't look even slightly believable. </p>
+                    </div>
+
+                    <div id="Solve" class="tabcontent">
+                      <h3> What makes us ready for Internship?</h3>
+                      <p> More practise makes us ready for Internship. There are many variations of passages of  The standard chunk of Lorem Ipsum
+                          used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus
+                          Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by
+                          English versions from the 1914 translation by H. Rackham.Lorem Ipsum available, but the majority have suffered
+                          alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+                    </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--app post part part-->
+
+
+<section class="dot">
+    <div class="container">
+        <div class="row">
+            {% for list in list %}
+            <div class="col-sm-12">
+                 <div class="check">
+                     <h1><a href="{% url 'detail'  list.id %}">Title : {{  list.Posting_title }}
+                     </a> </h1>
+                        </a></h1>
+                        <h3><i class="fas fa-map-marker-alt"></i> Location: {{ list.Location }}</h3>
+                        {{ list.date }}
+                        <p>Discription : {{ list.Internship_discription }}</p>
+                        <h3>{{ list.job_type }}</h3>
+                        <!--<button type="button" class="btn btn-primary butto">Detail</button>-->
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script>
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+{% endblock %}
+

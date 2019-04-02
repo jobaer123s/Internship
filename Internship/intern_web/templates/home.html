@@ -1,0 +1,232 @@
+{% extends 'base.html' %}
+{% load staticfiles  %}
+{% block content %}
+
+    <style>
+    #myDIV {
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+    background-color: lightblue;
+    margin-top: 20px;
+}
+    .ban_text p{
+    font-size:20px;
+    font-family:  'Roboto Condensed', sans-serif;
+    color: #000;
+    font-weight: 600;
+    font-family: 'Oswald', sans-serif;
+}
+.ban_text h1{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 40px;
+    color: #000;
+    font-weight: 800;
+    font-family: 'Oswald', sans-serif;
+}
+.ban_text h1 i{
+color:#d3b79f
+}
+.ban_text h1 span{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 40px;
+    color: #1a9d96;
+    font-weight: 800;
+}
+        .text p{
+             margin-top: 30px;
+             margin-bottom: 50px;
+            color: #7d8488;
+            }
+    span{
+        font-weight: 800;
+    }
+    .text{
+        border-bottom:0.5px solid #7d8488;
+    }
+
+    .banner{
+        z-index: 1;
+
+    }
+    .post{
+        background-color: #1a7c85;;
+        padding: 10px;
+        margin-top: 60px;
+        text-align: center;
+    }
+    .post_create i{
+        padding-right:2px;
+        color:#fff
+    }
+
+    .post_create{
+    color:#fff;
+    padding:10px;
+    font-size: 17px;
+    }
+    table {
+    border-collapse: collapse;
+    width: 100%;
+}
+.intern-post a{
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+}
+.intern-post a:hover{
+    color: #fed124;
+
+}
+    th, td,a {
+    padding: 8px;
+    text-align: left;
+        color: #fff;
+}
+    .post{
+        width: 100%;
+        padding-bottom:18px
+
+    }
+    .ban_text{
+    position: absolute;
+    top:32%;
+    left:60%
+}
+.ban_img img{
+height:500px;
+width:100%
+}
+.user{
+font-family: 'Kodchasan', sans-serif;}
+.logout{
+font-family: 'Oswald', sans-serif;
+}
+.mid_text{
+     position: absolute;
+    top:20%;
+    left:10%;
+    font-family: 'Oswald', sans-serif;
+
+    }
+    .logout span{
+    color:#fed124
+    }
+    .logout{
+    <!--font-size:20px-->
+    }
+
+    </style>
+
+
+<!--user authenticate part-->
+
+
+     <section class="post">
+     <div class="container">
+         <div class="row">
+             <div class="post_create">
+                 <div class="col-sm-4 intern-post">
+                 <i class="fas fa-plus"></i><a href="{% url 'postCreate' %}">Post an internship or Job</a>
+             </div>
+             <div class="col-sm-4 user">
+                 <i class="fas fa-user"></i>
+                     {% if user.is_authenticated %}
+                     {{ request.user.username }}
+                     {% else %}
+                     <span>not loged in</span>
+                     {% endif %}
+
+             </div>
+             <div class="col-sm-4 logout">
+                 Internship.com has <span>{{ user_number }}</span> users
+             </div>
+             </div>
+        </div>
+     </div>
+    </section>
+
+<!--banner part-->
+
+    <div class="banner">
+        <div class="ban_img">
+             <img src="{% static 'images/in-office-working-on-laptop_4460x4460.jpg' %}" alt="">
+        </div>
+
+
+    <div class="ban_text">
+        <p>Internships Are......</p>
+        <h1>The New <span>Interview</span> <i class="fas fa-smile"></i></h1>
+        <form method="get" action="{% url 'learn' %}">
+            <button>Lernn More</button>
+        </form>
+    </div>
+   </div>
+
+
+<!-- middle banner part-->
+
+    <section class="middle">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="banner_mid">
+                       <div class="mid_image">
+
+                           <a href="#"><img src="{% static 'images/parc_image-by-big_02.jpg' %}" alt=""></a>
+                       </div>
+                    <div class="mid_text">
+
+                        <h1><span>Over 300</span> Colleges & Universities</h1>
+                        <p>are using Internships.com</p>
+                        <a href="#">See the full list</a>
+                    </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!--content part-->
+
+    <section class="content">
+        <div class="container text">
+            <div class="row">
+                <div class="col-sm-6">
+                    <p>Internships.com is the perfect <span>complement to career </span>centers at colleges and universities
+                        across the country. Educators can receive exclusive internship resources or integrate
+                        internship inventory into learning management systems such as <span>Blackboard and Moodlerooms.</span>
+                        Employers want candidates with real-world experience, and internships are the best way
+                        for students to gain the experience necessary to find the right job after graduation.
+                        Help improve your student’s job prospects by providing access to the world’s largest
+                        marketplace for internships, part-time jobs and entry level positions.</p>
+                </div>
+                <div class="col-sm-6">
+                    <p>Using Internships.com, your students can search thousands of internships to
+                        find work in a particular industry, within a specific geography or at a particular
+                        company. By working with Internships.com, you can post internships exclusively to
+                        students at your school, receive custom analytics about the preferences of your students,
+                        access exclusive employment data, industry reports and much more.<br>
+                        Join the hundreds of colleges and universities that are using Internships.com as
+                        a resource for their students. Contact us to learn more today!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!--javascript  part-->
+
+<script>
+function myFunction() {
+    var x = document.getElementById("myDIV");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+</script>
+
+
+
+{% endblock %}

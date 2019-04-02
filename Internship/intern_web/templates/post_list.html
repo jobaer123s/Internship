@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% load staticfiles  %}
+{% block content %}
+    <style>
+    .search{
+        margin-top: 60px;
+        background-color: #1a7c85;
+        padding: 10px;
+        color: #fff;
+        padding-top: 15px;
+    }
+    .btn{
+        color: #000;
+    }
+    .butto{
+        color: #fff;
+    }
+    .search p{
+        font-size: 18px;
+        font-family: 'Oswald', sans-serif;
+    }
+    .search_bar{
+        padding-left: 184px;
+    }
+    .post_title h1{
+        color: red;
+        margin-top: 100px;
+        font-family: 'Oswald', sans-serif;
+
+    }
+    .post_title{
+        margin-bottom: 30px;
+    }
+    .check{
+        padding: 10px;
+        background-color: #d8e5e7;
+   }
+    .all-post h1{
+        font-size: 20px;
+        color: #16888f;
+        font-weight: 600;
+        margin-bottom: 10px;
+        font-family: 'Oswald', sans-serif;
+    }
+    .all-post p{
+        color: #727772;
+        margin-top: 5px;
+        font-family: 'Kodchasan', sans-serif;
+    }
+    .all-post h3{
+        color: #2b542c;
+        margin-bottom: 10px;
+        font-weight: 600;
+        font-family: 'Oswald', sans-serif;
+    }
+    .all-post h3{
+        font-size: 17px;
+        margin-top: 5px;
+        margin-bottom: 22px;
+        font-family: 'Oswald', sans-serif;
+    }
+    col{
+        margin: 0;
+    }
+    h1,h3{
+        margin: 0;
+        padding: 0;
+    }
+    .all-post{
+        margin-top: 28px;
+    }
+    .check{
+        margin-top: 10px;
+        background-color: #f8f7f7;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 21px;
+}
+    .check h3 i{
+    padding-right:3px
+    }
+    .check:hover{
+    background-color:#efefed;
+    }
+    </style>
+
+
+<!--header & search part-->
+
+    <div class="search">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6"><p>Search and Find Internships & make your Career</p></div>
+                <div class="col-sm-6 search_bar">
+                    <form class="form-inline" method="get" action="">
+                        <input type="text" class="form-control mr-sm-2" name="q" value="{{ request.GET.query }}" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                      </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--all post show part-->
+
+    <section class="all-post">
+        <div class="container">
+                 <h1>Total number of Posts: {{ all_post|length }}</h1>
+
+            <div class="row">
+                {% for all_post in all_post %}
+
+                    <div class="col-sm-12">
+                    <div class="check">
+                        <h1><a href="{% url 'detail'  all_post.id %}">Title : {{  all_post.Posting_title }}
+                        </a></h1>
+                        <h3><i class="fas fa-map-marker-alt"></i> Location: {{ all_post.Location }}</h3>
+                        {{ all_post.date }}
+                        <p>Discription : {{ all_post.Internship_discription }}</p>
+                        <h3>{{ all_post.job_type }}</h3>
+
+                        <!--<button type="button" class="btn btn-primary butto">Detail</button>-->
+                    </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+</section>
+
+{% endblock %}

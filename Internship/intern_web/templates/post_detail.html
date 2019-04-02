@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+{% load staticfiles  %}
+{% block content %}
+    <style>
+    .details{
+        margin-bottom: 120px;
+        border-bottom:1px solid #ccc ;
+    }
+    .title{
+        margin-top: 60px;
+        background-color: #1a7c85;
+        padding: 10px;
+        color: #fff;
+    }
+    .title span{
+        color:#fed124
+    }
+    .title p{
+        font-size: 20px;
+        font-weight: 600;
+        font-family: 'Oswald', sans-serif;
+    }
+     .left{
+        padding-right: 40px;
+        border-right: 1px solid #ccc;
+    }
+    .right p span{
+        color:#0b9731;
+        font-size: 20px;
+        font-weight: 600;
+        font-family: 'Oswald', sans-serif;
+    }
+    .right p{
+        font-size: 20px;
+    }
+    .right{
+        margin-top: 30px;
+        padding-left: 43px;
+
+    }
+    .how{
+        margin-top: 30px;
+        background-color: #fdfacf;
+        padding: 10px;
+        border-radius: 10px;
+        padding-left: 20px;
+
+    }
+    .how p{
+        font-size: 12px;
+    }
+    .how h1{
+        font-size: 20px;
+        font-weight: 600;
+        font-family: 'Oswald', sans-serif;
+    }
+    .right button {
+	padding: 12px 24px;
+    background-color: #4970a0;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    margin-top: 15px;
+}
+.left h1{
+font-family: 'Oswald', sans-serif;
+}
+    </style>
+
+<!--title part-->
+
+
+    <div class="title">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12"><p>The details of titled as <span>"{{ detail.Posting_title }}"</span></div>
+
+            </div>
+        </div>
+
+    </div>
+
+<!--left detail part-->
+
+    <section class="details">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 left">
+                    <div class="des">
+                        <h1>Description</h1>
+                            <p><i>Musika Frère is currently seeking a showroom assistant intern. This is an excellent opportunity
+                                to gain real-world work experience and develop skills in apparel design, development and production,
+                                as well as the overall day-to-day business aspects of running a luxury menswear brand. <br>
+                                This internship is unpaid, but we do compensate for travel and lunch. Upon completion of this
+                                internship there is a possibility of being offered a position.</i></p>
+                    </div>
+
+                    <div class="responsible">
+                        <h1>Responsibilities</h1>
+                        <ul>
+                            <li>- Maintaining showroom neatness</li>
+                            <li>- Ordering necessary supplies & equipment</li>
+                            <li>- Participate in fittings when necessary</li>
+                            <li>- Customer Service</li>
+                            <li>- Assist design team with photo-shoots and travels as needed</li>
+                            <li>- Create social media posts</li>
+                            <li>- Assistance with website development</li>
+                            <li>- Shipping packages</li>
+                            <li>- Overall assistance with errands and administrative tasks as needed and
+                                what we need to do</li>
+                            <li>- All packages</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <!--right detail part-->
+
+                <div class="col-sm-6 right">
+                    <p><span>Application Deadline :</span> <i class="fas fa-calendar-alt"></i> {{ detail.deadline }}</p>
+                    <p>apply now?</p><a class="btn btn-primary" href="{% url 'apply' detail.Posting_title%}">Apply</a>
+
+                    <div class="how">
+                        <h1>How to apply:-</h1>
+                        <p>Always be on the alert for potentially fraudulent job postings online. Report potential
+                            fraud to us if you're unsure about the legitimacy of a job posting or employer on
+                            Internships.com. Always do your research on a company.</p>
+
+                        <ul>
+                            <li>- Never accept a check or other funds from a company to purchase materials necessary for your position.</li>
+                            <li>- Avoid and report situations where employers require payment or work without
+                                compensation as part of the application process.</li>
+                            <li>- Avoid corresponding with anyone who reaches out via text or email or outside of the
+                                Internships.com platform that you don't recognize.</li>
+                            <li>- Be wary of Google Hangout or Skype interviews as these are not publicly-listed numbers that can be used to verify
+                                the legitimacy of the interviewer.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

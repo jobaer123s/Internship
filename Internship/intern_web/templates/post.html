@@ -1,0 +1,174 @@
+{% extends 'base.html' %}
+{% load staticfiles  %}
+{% block content %}
+
+    <style>
+        .create_post{
+            margin-top: 60px;
+        }
+    .title{
+        margin-top: 60px;
+        padding: 10px;
+        background-color: #1a7c85;;
+        text-align: center;
+    }
+    .title p{
+        color:#fff;
+        font-size: 20px;
+        font-family: 'Oswald', sans-serif;
+    }
+    .title p i{
+        padding-right: 5px;
+    }
+    .help{
+        padding-left: 30px;
+    }
+    .from{
+        padding-right: 40px;
+        border-right: 1px solid #ccc;
+    }
+    .query p{
+        font-size: 18px;
+        font-family: 'Oswald', sans-serif;
+    }
+    .query p i{
+        padding-left: 10px;
+    }
+    .need p{
+        font-size: 15px;
+        margin-top: 20px;
+    }
+      .query{
+        margin-top: 30px;
+        background-color: #fdfacf;
+        padding: 10px;
+        border-radius: 10px;
+        padding-left: 20px;
+
+    }
+      .query p i{
+          padding-right: 10px;
+      }
+    .create_post{
+        margin-bottom: 100px;
+    }
+    .message{
+    margin-top:30px
+    }
+    .messages{
+         font-size:18px;
+    background-color:#dff0d8;
+    color:#3c763d;
+    font-weight:600;
+    padding:7px;
+    margin-left:5px;
+    border-radius: 10px;
+    padding-left: 22px;
+    }
+    .from p{
+    font-size: 18px;
+        font-family: 'Oswald', sans-serif;
+        border-right: 1px solid #fff;
+    }
+
+
+    </style>
+
+<!--title part-->
+
+
+    <section class="title">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p><i class="fas fa-folder-plus"></i>Post An Internship</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!--show message part-->
+
+    <section class="message">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    {% if messages %}
+                        <ul class="messages">
+                            {% for message in messages %}
+                            <p><li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li></p>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!--post form part-->
+
+    <section class="create_post">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 from">
+                    {% if user.is_authenticated %}
+                        <form id="postform" method="POST">
+                          <div class="form-group">
+                            <label>title</label>
+                            <input type="email" class="form-control" id="title" aria-describedby="emailHelp" placeholder="Enter email">
+
+                          </div>
+                             <div class="form-group">
+                                    <label>discription</label>
+                                    <textarea class="form-control" id="discription" rows="3"></textarea>
+                                  </div>
+
+
+                              <div class="form-group">
+                            <label>location</label>
+                            <input type="text" class="form-control" id="location" aria-describedby="emailHelp" placeholder="Enter email">
+
+                          </div>
+
+                            <div class="form-group">
+                            <label>jobtype</label>
+                            <input type="text" class="form-control" id="jobtype" aria-describedby="emailHelp" placeholder="Enter email">
+
+                          </div>
+
+                            <div class="form-group">
+                            <label>deadline</label>
+                            <input type="number" class="form-control" id="deadline" aria-describedby="emailHelp" placeholder="Enter email">
+
+                          </div>
+
+
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    {% else %}
+                    <p>Sir, Please Sign Up OR Login   First! <br> Thanks  <i class="far fa-smile"></i></p>
+                    <p>Login  now? <a href="{% url 'login'%}">Login</a></p>
+                    {% endif %}
+
+                </div>
+                <div class="col-sm-6 help">
+
+                    <div class="query">
+
+                        <p> <i class="fas fa-info"></i> : The content query is a way of extracting information about the internal statistics and
+                            structure of the mining model. Sometimes a content query can provide details that are not
+                            readily available in the viewer. You can also use the results of a content query to extract
+                            information programmatically for other uses.<br><br>
+                            This section provides general information about the types of information that you can
+                            retrieve by using a content query, and the general DMX syntax for content queries.<i class="far fa-smile-wink"></i> </p>
+                    </div>
+                    <div class="need">
+                            <p>need more help? <a href="{% url 'contact'%}">contact us</a></p>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}

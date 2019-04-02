@@ -1,0 +1,181 @@
+{% extends 'base.html' %}
+{% load staticfiles  %}
+{% block content %}
+    <style>
+
+     .learn{
+        background-color: #1a7c85;
+        margin-top:66px;
+        color: #fff;
+        font-family: 'Oswald', sans-serif;
+        padding-bottom: 12px;
+    }
+    .learn h1{
+        font-size: 18px;
+        font-family: 'Oswald', sans-serif;
+    }
+
+    .details {
+
+    margin-bottom:150px;
+    font-family: 'Oswald', sans-serif;
+
+    }
+    .titlle{
+        font-family: 'Oswald', sans-serif;
+        margin-top:30px;
+        color: #cb8603;
+        font-size: 25px;
+    }
+    .bor{
+    border-bottom:1px solid #ccc;
+    padding-bottom: 10px;
+    border-bottom-style: dashed;
+    }
+    .details p{
+    font-size:22px
+    }
+    .leftdetail{
+        padding-top:20px
+    }
+    .rightdetail{
+    padding-left:52px;
+     border-left: 1px solid #ccc;
+    border-left-style:dashed;
+    padding-top:20px
+    }
+     .rightdetail h1{
+    padding-bottom:20px
+    }
+    .leftdetail h1{
+    padding-bottom:20px
+    }
+    ul li{
+    padding-bottom:10px
+    }
+    .javabutton{
+    padding: 11px 204px;
+    background-color: #1a7c85;
+    border: none;
+    color: #fff;
+    border-radius: 7px;
+    margin-bottom:30px;
+    margin-top:10px
+    }
+    #myDiv{
+    color:#2386b0;
+    font-size:20px;
+    margin-bottom:30px;
+    padding: 30px;
+    background-color: #f5f9f9;
+    border-radius: 6px;
+    }
+    </style>
+
+<!--header part-->
+
+    <section class="learn">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1>Internships.com For Colleges & Universities</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!--title part-->
+
+ <section class="titlle">
+        <div class="container bor">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p>What can Internships.com do for Colleges and Universities?</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!--left detail part-->
+
+    <section class="details">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 leftdetail">
+                    <h1>Basic Member -</h1>
+                    <p>Register and get started for free and enjoy these great benefits</p>
+
+                    <ul>
+                        <li>- Post internships on Internships.com</li>
+                        <li>- Receive and send monthly e-newsletters to students about the internships industry,
+                            opportunities, and resume/career tips</li>
+                    </ul>
+
+                    <a class="btn btn-primary" href="{% url 'signup'%}">Register Now</a>
+                </div>
+
+                <!--tips part-->
+
+                <div class="col-sm-6 rightdetail" >
+                    <h1>Take the next step & become an Expert With the given Tips:</h1>
+                    <p>Click the buton to swap the text for the Tips</p>
+                      <button class="javabutton" onclick="myFunction()"> Tips Every Clicks <i class="fas fa-angle-double-right"></i></button>
+
+                      <br>
+                      <div id="myDiv">Ready?</div>
+                    <a href="{% url 'contact'%}">Contact Us</a> for more Information
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!--javascript part-->
+
+
+    <script src="script.js"></script>
+    <script>
+          function myFunction() {
+  var x = document.getElementById("myDiv");
+  if (x.innerHTML === "Ready?") {
+
+
+    x.innerHTML = "Study more In Which Point You Decided to Go Through";
+  } else if (x.innerHTML === "Study more In Which Point You Decided to Go Through") {
+
+
+    x.innerHTML = "Practise more and more if you want to be an expert in your site!";
+  } else if (x.innerHTML === "Practise more and more if you want to be an expert in your site!") {
+
+
+
+    x.innerHTML = "Research whatever you feel Interesting, And don't Backwared untill you reach the goal!";
+  } else if (x.innerHTML === "Research whatever you feel Interesting, And don't Backwared untill you reach the goal!") {
+
+
+
+    x.innerHTML = "Search Resources in Google whenever whereever you stopped! keep it up!";
+  } else if (x.innerHTML === "Search Resources in Google whenever whereever you stopped! keep it up!") {
+
+
+
+
+    x.innerHTML = "Show the tutorial of Youtube , so that you make as expert as the lecturer";
+  } else if (x.innerHTML === "Show the tutorial of Youtube , so that you make as expert as the lecturer") {
+
+
+
+
+    x.innerHTML = "Practicing regularly is the best way to be a boss in any department, So keep Practicing!";
+  } else if (x.innerHTML === "Practicing regularly is the best way to be a boss in any department, So keep Practicing!") {
+
+
+
+
+      x.innerHTML="End Tour";
+    myFunction();
+  }
+}
+    </script>
+
+{% endblock %}

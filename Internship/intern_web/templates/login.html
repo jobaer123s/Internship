@@ -1,0 +1,120 @@
+
+{% extends 'home.html' %}
+{% load staticfiles  %}
+
+{% block content %}
+    <style>
+    .selectedcategoryServices {
+    background-color: red;
+
+}
+
+.title{
+	text-align: center;
+	padding: 50px 0 20px;
+}
+.login{
+    margin-top: 60px;
+    margin-bottom: 100px;
+    border-bottom: 1px solid #ccc;
+}
+.title h1{
+	margin: 0;
+	padding: 0;
+	color: #000;
+	font-size: 20px;
+	padding-bottom: 30px
+}
+.title p{
+	color:#000
+}
+input[type="text"], input[type="password"]{
+	height: 57px;
+	width: 365px;
+	font-size: 18px;
+	margin-bottom: 15px;
+	padding-left: 60px;
+	background-color: rgba(213, 213, 213, 0.46);
+	color: #000;
+	border: none;
+	border-radius: 5px
+
+}
+.input-from::before{
+	content: "\f007";
+	position: absolute;
+	font-family: "FontAwesome";
+	padding-left: 15px;
+	padding-right: 15px;
+	color: #ccd4e2;
+	padding-top:4.5px;
+	font-size: 35px;
+	background-color: #00B5D3;
+	border-radius: 5px
+}
+.in::before{
+	content: "\f023";
+	position: absolute;
+	font-family: "FontAwesome";
+	padding-left: 15px;
+	padding-right: 15px;
+	color: #ccd4e2;
+	padding-top:4.5px;
+	font-size: 35px;
+	background-color: #00B5D3;
+	border-radius: 5px
+}
+.input-from:last-child::before{
+	content: "\f023";
+}
+.btn-login{
+    background-color:#00B5D3;
+    border: 0;
+    height: 40px;
+    width: 122px;
+    color: #fff;
+	border-radius: 5px;
+	cursor: pointer;
+    margin-bottom: 40px;
+}
+
+.check {
+
+	text-align: inherit;
+	padding-right: 233px;
+	padding-bottom: 30px;
+}
+
+    </style>
+
+<!--login part-->
+
+    <section class="login">
+        <div class="container title">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1>LOG IN</h1>
+                        <p>Don't have an account? <a href="{% url 'signup' %}">create now</a></p>
+                          <form class='form' id="login_form" method="post" action="/login/">
+                                    {% csrf_token %}
+                              <div class="input-from">
+
+                                <input type="text" placeholder="Username" name="username" required>
+                                </div>
+                                <div class="input-from in">
+                                    <input type="password" placeholder="Password" name="password" required>
+                                </div>
+                                <div class="check">
+                                    <input type="checkbox"> Remember me
+                                </div>
+                                    <input type="submit" name="submit" value="LOG IN" class="btn-login">
+                          </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock %}

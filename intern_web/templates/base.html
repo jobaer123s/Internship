@@ -1,0 +1,249 @@
+{% load staticfiles  %}
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/slick.js"></script>
+    <script src="jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kodchasan|Oswald" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kodchasan|Oswald|Playfair+Display" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Charmonman|Kodchasan|Oswald|Playfair+Display" rel="stylesheet">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/slick-theme.css">
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+
+</head>
+<body>
+<style>
+    .navbar{
+        margin-bottom: 0px;
+    }
+    .menu {
+    z-index: 1000;
+    right: auto;
+    background: #fff;
+    border-bottom:1px solid #ccc;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    border-radius: 0px;
+    padding: 5px 0;
+    border-top: 5px solid #e8a833
+}
+    .link{
+        margin-top: 50px;
+    }
+    .linkone{
+        color: #3f12a9;
+        font-weight: 600;
+    }
+    .linktwo{
+        font-weight: 600;
+        color:#23a5ce
+    }
+    .link a{
+        color:#000
+    }
+
+    .link a:hover{
+        text-decoration: underline;
+    }
+
+.foot{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.copy{
+    color: #000;
+}
+.copy a{
+    border-right: 1px solid;
+    padding-right: 10px;
+}
+.socal {
+    color: #fff;
+    {#padding: 10px 10px;#}
+}
+
+.socal a {
+    float: right;
+}
+.socal a i {
+    text-align: center;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    margin-left: 5px;
+    color: #fff;
+    transition: all linear 0.5s;
+}
+
+.fa-facebook-f{
+    border-radius: 50%;
+    background: #236af2;
+}
+
+.fa-twitter {
+    border-radius: 50%;
+    background: #16e6de;
+}
+
+ .fa-google-plus-g {
+    border-radius: 50%;
+    background: #f82222;
+}
+    .menu a i{
+        padding-right:1px;
+    }
+    .actives{
+        background-color:#19d58b;
+    }
+
+    .navbar-default .navbar-nav .actives > a{
+        color: #fff;
+    }
+    .bg{
+    background-color:red
+    }
+    .navbar-brand{
+    font-family: 'Oswald', sans-serif;
+    }
+    .nav i{
+    padding-right:5px
+    }
+
+
+</style>
+
+
+<!--navbar here-->
+
+<nav class="navbar navbar-default menu">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{% url 'home' %}"><i class="fas fa-info"></i>nternship.Com</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="actives"><a href="{% url 'home' %} "><i class="fas fa-home"></i>Home</a></li>
+      <li ><a href="{% url 'post_list' %}">Intership-Posts</a></li>
+      <li><a href="{% url 'student' %}"><i class="fas fa-user-graduate"></i>Students</a></li>
+      <li><a href="{% url 'contact' %}"><i class="fas fa-envelope"></i>Contact</a></li>
+        {% if not user.is_authenticated %}
+      <li><a href="{% url 'login' %}">Login</a></li>
+      <li><a href="{% url 'signup' %}">Signup</a></li>
+        {%else%}
+       <li><a  href="{% url 'logout' %}"> <i class="fas fa-sign-out-alt"></i>Log Out</a></li>
+        {%endif%}
+    </ul>
+  </div>
+</nav>
+{% block content %}
+        {% endblock %}
+
+
+<!--footer here-->
+
+
+ <div class="container-fluid link">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3 footerItem">
+                    <p class="linkone">Your next internship</p>
+                    <ul>
+                        <li><a href="{% url 'learn'%}"></i>Intern Jobs Search</a></li>
+                        <li><a href="{% url 'learn'%}"></i>Create Your Profile</a></li>
+                        <li><a href="{% url 'learn'%}"></i>Internship Predictor®</a></li>
+                        <li><a href="{% url 'learn'%}"></i>nternship Jobs by City</a></li>
+                        <li><a href="{% url 'learn'%}"></i>nternship Opportunity by Category</a></li>
+                        <li><a href="{% url 'learn'%}"></i>Internships by Company</a></li>
+                        <li><a href="{% url 'learn'%}"></i>Summer Internships</a></li>
+                        <li><a href="{% url 'learn'%}"></i>Mobile Internship Tools</a></li>
+
+                    </ul>
+                </div>
+                <div class="col-sm-3 footerItem">
+                    <p class="linktwo">Resources</p>
+                    <ul>
+                        <li><a href="{% url 'learn'%}"></i>Internship Basics </a></li>
+                        <li><a href="{% url 'learn'%}"></i>Prepare to Be Hired </a></li>
+                        <li><a href="{% url 'learn'%}"></i>Finding Your Perfect Opportunity </a></li>
+                        <li><a href="{% url 'learn'%}"></i>Eye of the Intern® Blog </a></li>
+                        <li><a href="{% url 'learn'%}"></i>Internships Widget </a></li>
+                        <li><a href="{% url 'learn'%}"></i>Trust and Safety Center </a></li>
+
+                    </ul>
+                </div>
+                <div class="col-sm-3 footerItem">
+                    <p class="linktwo">Cover Letter</p>
+                    <ul>
+                        <li><a href="{% url 'learn'%}"></i>How to Write a Cover Letter</a></li>
+                        <li><a href="{% url 'learn'%}"></i>Cover Letter Samples</a></li><br>
+                        <li><p class="linktwo">Effective Interviewing</p></li>
+                        <li><a href="{% url 'learn'%}"></i>Interviewing Tips</a></li>
+                        <li><a href="{% url 'learn'%}"></i>Internship Interview Questions</a></li>
+                        <li><a href="{% url 'learn'%}"></i>Interview Follow Up</a></li><br>
+                        <li><p class="linktwo">Resume</p></li>
+                        <li><a href="{% url 'learn'%}"></i>How to Write a Resume</a></li>
+                        <li><a href="{% url 'learn'%}"></i>Resume Samples</a></li>
+
+
+                    </ul>
+                </div>
+                <div class="col-sm-3 footerItem">
+                    <p class="linkone">For Employers</p>
+                    <ul>
+                        <li><a href="{% url 'home'%}"></i>Getting Started</a></li>
+                        <li><a href="{% url 'learn'%}"></i>Post an Internship or Job for Free</a></li>
+                        <li><a href="{% url 'learn'%}"></i>Setting Up an Internship Program</a></li>
+                        <li><a href="{% url 'learn'%}"></i>Running a Successful Program</a></li><br>
+                        <li><p class="linkone">For Educators</p></li>
+                        <li><a href="{% url 'signup'%}"></i>Register Now</a></li>
+                        <li><a href="{% url 'learn'%}"></i>Benefits of Joining</a></li>
+                        <li><a href="{% url 'learn'%}"></i>Get Stats for Students at Your School</a></li>
+                        <li><a href="{% url 'learn'%}"></i>Internship Materials to Share
+                                             with Students </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="foot">
+        <div class="container">
+             <div class="row">
+                <div class="col-sm-6 copy">
+                    <p>©Internships.com® is a service provided by © 2018 Chegg Inc. All rights reserved.</p>
+                    <a href="{% url 'home'%}">home</a>
+                    <a href="{% url 'learn'%}">terms</a>
+                    <a href="{% url 'learn'%}">privacy</a>
+                    <a href="{% url 'contact'%}">contact us</a>
+
+                </div>
+                <div class="col-sm-6 socal">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/tousif.sourav"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<div class="container">
+  </div>
+
+<script>
+    $(document).ready(function() {
+        $(".nav").on('click','li','a',function(){
+            $(".nav li.actives").removeclass('actives');
+            $(this).addclass("actives");
+        });
+
+</script>
+</body>
+</html>

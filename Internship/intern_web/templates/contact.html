@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+{% load staticfiles  %}
+{% block content %}
+
+<style>
+    .leftcon p{
+    text-align: justify;
+    width: 265px;
+    font-family: 'Oswald', sans-serif;
+    }
+    .leftcon p i{
+    padding-right:9px
+    }
+
+    .leftcon h1 i{
+    padding-left:9px
+    }
+     .leftcon h1{
+    font-family: 'Oswald', sans-serif;
+    padding-left:0px;
+    padding-bottom:5px;
+    }
+    .leftcon img{
+        width:264px;
+        height:286px
+    }
+
+     .touch{
+        margin-top:62px;
+        background-color: #1a7c85;
+        padding: 10px;
+        color: #fff;
+        font-family: 'Oswald', sans-serif;
+    }
+    .touch p{
+        font-size: 18px;
+    }
+
+    .rightcon h1{
+    border-bottom:1px solid #ccc;
+    text-align:center;
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 30px;
+    padding-bottom: 17px;
+    }
+    .hi{
+    font-size:22px;
+    font-family: 'Oswald', sans-serif;
+    }
+    .con_sug{
+     font-size:22px;
+    font-family: 'Oswald', sans-serif;
+    padding-bottom:19px
+    }
+     .con{
+     font-size:18px;
+    font-family: 'Oswald', sans-serif;
+    }
+    .con i{
+    padding-right:8px
+    }
+    .con span{
+    color:#ac8a0a
+    }
+    .email p{
+    font-size:22px;
+    font-family: 'Oswald', sans-serif;
+    margin-top: 45px;
+    border-top: 1px solid #ccc;
+    padding-top: 41px;
+    }
+    .map iframe{
+    width:100%;
+    margin-bottom:40px
+    }
+    .map p{
+    font-size:22px;
+    font-family: 'Oswald', sans-serif;
+    margin-top:40px;
+    margin-bottom:20px;
+    text-align:center;
+    border-bottom:1px solid #ccc;
+    border-bottom-style: dashed;
+    padding-bottom: 15px;
+    }
+
+
+</style>
+
+<!--header part-->
+
+    <section class="touch">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <p>Get In Touch</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--left contact part-->
+
+
+    <section class="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 leftcon">
+                    <a href=""><img src="{% static 'images/44342864_168968087375960_7133470882248261632_n.jpg' %}" alt=""></a>
+                    <h1>Jobaer Hossain <i class="far fa-smile-wink"></i></h1>
+                    <p><i class="fas fa-info"></i>am Jobaer hossain sourav.I am a Software frontend and Backend Developer There are many variations of passages of Lorem Ipsum available, but
+                        the majority have suffered alteration in some form, by injected humour, or randomised words
+                        which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum,
+                        you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
+
+                    <!--right contact part-->
+
+                </div>
+                <div class="col-sm-8 rightcon">
+                    <div class="info">
+                        <h1>Contact</h1>
+                        <p class="hi">Hi there!</p>
+                        <p class="con_sug">"For any kind of information about internship/job, or for personally contact with me, Send  an email
+                            or call me in sensative case, please ensure that the cause is urjent"</p>
+                        <p class="con"><i class="fas fa-envelope"></i>Email: <span>Jobaer35-844@diu.edu.bd</span></p>
+                        <p class="con"><i class="fas fa-phone"></i>Phone: <span>01624655288</span></p>
+                        <p class="con"><i class="fas fa-map-marker-alt"></i>Address: <span> Rajia sultana road, Mohammodpur,
+                            Dhaka</span></p>
+
+                        <div class="email">
+                                <p>For a quick interaction, perhaps the best way is reaching me out on Facebook <a
+                                        href="https://www.facebook.com/tousif.sourav">Jh Sourav</a>
+                                My messenger is open for everyone.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--map part-->
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="map">
+                        <p>For making you more clear</p>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d16254.37176593243!2d90.36099400098313!3d23.756182634558968!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1539796940104" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{%endblock%}

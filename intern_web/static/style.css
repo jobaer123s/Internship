@@ -1,0 +1,95 @@
+/*.title{*/
+	/*margin: 0;*/
+	/*padding: 0;*/
+	/*background-image: url(images/background_m3_login_for_m1_by_andreascy-d3ecbzg.jpg);*/
+	/*background-size: cover;*/
+	/*font-family: sans-serif;*/
+    /*height:600px;*/
+    /*width: 100%;*/
+/*}*/
+*{
+    margin: 0px;
+    padding: 0px;
+    outline: 0px;
+}
+img{
+    border: 0px;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+ul,ol{
+    list-style: none;
+}
+
+body{
+   font-family: 'Open Sans', sans-serif;
+}
+
+.nav  li a:hover{
+    color: #999;
+    background-color: red
+}
+/*.nav{*/
+    /*background-color: #999;*/
+/*}*/
+
+.ban_image img{
+    width: 100%;
+    position: relative;
+}
+.ban_text{
+    position: absolute;
+    top:35%;
+    left:60%
+}
+.ban_text p{
+    font-size:20px;
+    font-family:  'Roboto Condensed', sans-serif;
+    color: #fff;
+    font-weight: 400
+}
+.ban_text h1{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 40px;
+    color: #fff;
+    font-weight: 800;
+}
+
+.ban_text button {
+	padding: 12px 24px;
+    background-color: #4970a0;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+
+.mid_image img{
+    width: 100%;
+    position: relative;
+}
+.mid_text{
+     position: absolute;
+    top:20%;
+    left:10%
+    font-family: 'Oswald', sans-serif;
+}
+.mid_text span{
+    font-weight: 600;
+    color: #48762b;;
+}
+
+.mid_text p{
+    color:#48762b;;
+    font-weight: 400;
+    font-size: 20px;
+}
+.mid_text a{
+    color: #5bc0de;
+}
+

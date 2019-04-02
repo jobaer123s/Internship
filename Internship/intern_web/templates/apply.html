@@ -1,0 +1,162 @@
+{% extends 'base.html' %}
+{% load staticfiles  %}
+{% block content %}
+<style>
+<!--.apply_post{-->
+<!--margin-top:70px-->
+<!--}-->
+        .title{
+        margin-top: 60px;
+        background-color: #1a7c85;
+        padding: 10px;
+        color: #fff;
+    }
+    .title span{
+        color:#fed124
+    }
+    .title p{
+        font-size: 20px;
+        font-weight: 600;
+        padding-top: 13px;
+
+    }
+
+    .help{
+        padding-left: 30px;
+        margin-top:30px
+    }
+    .submit p{
+    margin-top:13px;
+    border-bottom:1px solid #ccc;
+    padding-bottom: 20px;
+    border-bottom-style: dashed;
+    }
+    .help {
+    font-size:23px;
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 32px;
+    }
+    .from{
+        padding-right: 40px;
+        border-right: 1px solid #ccc;
+    }
+    .query p{
+        font-size: 18px;
+    }
+    .query p i{
+        padding-left: 10px;
+    }
+    .need p{
+        font-size: 15px;
+        margin-top: 20px;
+    }
+      .query{
+        margin-top: 30px;
+        background-color: #fdfacf;
+        padding: 10px;
+        border-radius: 10px;
+        padding-left: 20px;
+
+    }
+      .query p i{
+          padding-right: 10px;
+      }
+    .create_post{
+        margin-bottom: 100px;
+    }
+    .user i{
+    font-size:100px;
+    margin-left: 233px;
+    margin-top: 50px;
+    }
+    .user p{
+    font-size:20px;
+    color:#200e0e;
+    text-align:center;
+    font-weight:600;
+    padding-top:10px;
+    margin-bottom: 109px;
+    font-family: 'Oswald', sans-serif;
+    }
+    .user{
+    border: 1px solid #ccc;
+    margin-top: 56px;
+    }
+    .message{
+    margin-top:10px
+    }
+    .messages{
+         font-size:18px;
+    background-color:#dff0d8;
+    color:#3c763d;
+    font-weight:600;
+    padding:7px;
+    margin-left:5px;
+    border-radius: 10px;
+    padding-left: 22px;
+    }
+
+    </style>
+
+ <div class="title">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12"><p>You are applying for <span>"{{ name.Posting_title }}"</span></div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <section class="message">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    {% if messages %}
+                        <ul class="messages">
+                            {% for message in messages %}
+                            <p><li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li></p>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+   <section class="apply_post">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 user">
+
+                    <i class="fas fa-user"></i>
+                    <p>
+                        {% if user.is_authenticated %}
+                        {{ request.user.username }}
+                        {% else %}
+                         <span>not loged in</span>
+                        {% endif %}
+                    </p>
+
+                </div>
+                <div class="col-sm-6 help">
+                    <div class="submit">
+                        {% if user.is_authenticated %}
+                        <p>Simply Fill Up the Form and Submit:</p>
+                    </div>
+
+                    <form method="POST" action="">
+                            {{ form.as_p }}
+                        <input  class="btn btn-primary" type="submit" value="Apply"/>{% csrf_token %}
+                    </form>
+                    {% else %}
+                    <p>Sir, Please Sign Up OR Login   First!  <br> Thanks <i class="far fa-smile"></i></p>
+                    <p>Login  now? <a href="{% url 'login'%}">Login</a></p>
+
+
+                     {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
